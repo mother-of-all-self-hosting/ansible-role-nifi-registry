@@ -1,9 +1,9 @@
 ---
 galaxy_info:
   author: spatterlight
-  company: spatterlight
+  company: mash
   role_name: nifi_registry
-  namespace: spatterlight
+  namespace: mash
   description: An Ansible role for installing Apache NiFi Registry, a central store for versioned Apache NiFi flows
   platforms:
     - name: Debian

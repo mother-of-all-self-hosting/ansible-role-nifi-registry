@@ -8,8 +8,6 @@ name: Autotag releases
 
 on:  # yamllint disable-line rule:truthy
   push:
-    # This repository's default branch, and therefore the branch Renovate
-    # opens its updates against and automerges into.
     branches:
       - main
   workflow_dispatch:
@@ -33,7 +31,7 @@ jobs:
     steps:
       # The full history and all tags, since we compare against the previous release.
       - name: Check out
-        uses: actions/checkout@v6.0.3
+        uses: actions/checkout@v7.0.0
         with:
           fetch-depth: 0
 

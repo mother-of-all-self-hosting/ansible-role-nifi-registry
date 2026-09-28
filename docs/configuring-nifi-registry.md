@@ -82,7 +82,7 @@ To let more than one person in, add further `username:hash` entries (e.g. genera
 
 ### Connecting Apache NiFi
 
-Apache NiFi needs to be attached to the Apache NiFi Registry container network. If you use the [Apache NiFi role](https://github.com/spatterIight/ansible-role-nifi) on the same host:
+Apache NiFi needs to be attached to the Apache NiFi Registry container network. If you use the [Apache NiFi role](https://github.com/mother-of-all-self-hosting/ansible-role-nifi) on the same host:
 
 ```yaml
 nifi_container_additional_networks_custom:
