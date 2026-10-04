@@ -22,18 +22,11 @@
           - python3-requests
           # Used by the `community.general.xml` tasks the role runs
           - python3-lxml
-          # The storage driver Docker is configured with below. `overlay2` cannot be nested inside
-          # the container Molecule runs these tests in, and `vfs` (the usual fallback) has no
-          # copy-on-write, so it writes out every layer of the image in full.
-          - fuse-overlayfs
         state: present
 
     - name: Ensure Docker is installed for Apache NiFi Registry Molecule tests preparation
       ansible.builtin.include_role:
         name: ansible-role-docker
-      vars:
-        docker_daemon_options:
-          storage-driver: fuse-overlayfs
 
     # Mounted into the container through `nifi_registry_container_additional_volumes_custom` (see molecule.yml),
     # so that verify.yml can tell whether that variable really reaches the `docker create` command
