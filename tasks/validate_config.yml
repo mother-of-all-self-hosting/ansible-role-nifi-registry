@@ -16,7 +16,6 @@
     - nifi_registry_uid
     - nifi_registry_gid
     - nifi_registry_path_prefix
-    - nifi_registry_container_network
 
 - name: Run if Traefik is enabled
   when: nifi_registry_container_labels_traefik_enabled | bool
