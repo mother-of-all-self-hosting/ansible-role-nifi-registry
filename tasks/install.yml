@@ -29,6 +29,7 @@
     state: directory
     suffix: nifi-registry
   changed_when: false
+  check_mode: false
   register: nifi_registry_tempdir
 
 - name: Copy Apache NiFi Registry default configuration files for customization
@@ -39,6 +40,7 @@
     owner: "{{ nifi_registry_uid }}"
     group: "{{ nifi_registry_gid }}"
   changed_when: false
+  check_mode: false
   with_items:
     - authorizers.xml
     - bootstrap.conf
@@ -57,6 +59,7 @@
     state: "{{ item.1.state | default('present') }}"
     pretty_print: "{{ item.1.pretty_print | default(true) }}"
   changed_when: false
+  check_mode: false
   with_subelements:
     - - { "file": "authorizers.xml", "parameters": "{{ nifi_registry_authorizers_xml_replacements }}" }
       - { "file": "identity-providers.xml", "parameters": "{{ nifi_registry_identity_providers_xml_replacements }}" }
@@ -74,6 +77,7 @@
     regexp: "^{{ item.1.key | regex_escape }}="
     state: "{{ item.1.state | default('present') }}"
   changed_when: false
+  check_mode: false
   with_subelements:
     - - { "file": "nifi-registry.properties", "parameters": "{{ nifi_registry_properties_replacements }}" }
       - { "file": "bootstrap.conf", "parameters": "{{ nifi_registry_bootstrap_conf_replacements }}" }
@@ -103,6 +107,7 @@
     path: "{{ nifi_registry_tempdir.path }}"
     state: absent
   changed_when: false
+  check_mode: false
 
 - name: Ensure Apache NiFi Registry support files installed
   ansible.builtin.template:
