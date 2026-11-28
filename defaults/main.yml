@@ -56,6 +56,9 @@ nifi_registry_container_image_registry_prefix_upstream_default: docker.io/
 # `http://{{ nifi_registry_identifier }}:{{ nifi_registry_container_http_port }}`.
 nifi_registry_container_network: "{{ nifi_registry_identifier }}"
 
+# Control if the container network is deleted on uninstalling.
+nifi_registry_container_network_deletion_enabled: true
+
 # Controls whether the container exposes its HTTP port (tcp/18080 in the container).
 #
 # Takes an "<ip>:<port>" or "<port>" value (e.g. "127.0.0.1:18080"), or empty string to not expose.
