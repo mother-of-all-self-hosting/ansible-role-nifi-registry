@@ -19,7 +19,7 @@ nifi_registry_data_path: "{{ nifi_registry_base_path }}/data"
 nifi_registry_scripts_path: "{{ nifi_registry_base_path }}/scripts"
 
 # renovate: datasource=docker depName=apache/nifi-registry versioning=semver
-nifi_registry_version: 2.12.0
+nifi_registry_version: 2.13.0
 
 nifi_registry_uid: ""
 nifi_registry_gid: ""
